@@ -6,7 +6,7 @@ Stylus UserStyle: Cleanup Portainer Community Edition by hiding all the unusable
 
 # Preview
 
-![portainer-clean](images\portainer-clean.png)
+![portainer-clean](images/portainer-clean.png)
 
 # Installation instructions
 1. Install [Stylus for Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Firefox](https://addons.mozilla.org/firefox/addon/styl-us/), [Opera](https://github.com/openstyles/stylus/wiki/Opera,-Outdated-Stylus) or [Cascadea for Safari](https://cascadea.app/).
@@ -15,7 +15,7 @@ Stylus UserStyle: Cleanup Portainer Community Edition by hiding all the unusable
 # Setup instructions
 The style settings will be visible during and after style installation.
 
-![portainer-clean](images\settings.png)
+![portainer-clean](images/settings.png)
 
 - Insert your portainer instance url (including `http://` or `https://` and trailing `/`) in the first field.
   > Examples:
