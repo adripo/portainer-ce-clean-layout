@@ -1,0 +1,233 @@
+/* ==UserStyle==
+@name           Portainer Community Edition Clean Layout
+@version        1.0.0
+@namespace      Portainer
+@description    Cleanup Portainer Community Edition by hiding all the unusable business features.
+@author         adripo (https://github.com/adripo)
+@homepageURL    https://github.com/adripo/portainer-ce-clean-layout
+@supportURL     https://github.com/adripo/portainer-ce-clean-layout/issues
+@updateURL      https://github.com/adripo/portainer-ce-clean-layout/portainer-ce-clean.user.js
+@license        NO-REDISTRIBUTION
+@preprocessor   uso
+
+@var text   custom_url      "Portainer URL (https://example.com/)"         "https://example.com/"
+@var select apply_property  "CSS Property to apply" {
+    "Hide*":        "display: none !important;",
+    "Red Border":   "border: solid red 2px !important;",
+    "Rainbow":      `
+        border: 2px solid transparent !important;
+        border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%) !important;
+        border-image-slice: 1 !important;
+    `,
+    "Glow":         `
+        border: 2px solid #fff !important;
+        border-radius: 4px !important;
+        box-shadow: 0 0 4px #fff,
+            0 0 4px #fff,
+            0 0 6px #bc13fe,
+            0 0 8px #bc13fe,
+            0 0 10px #bc13fe,
+            inset 0 0 8px #bc13fe !important;
+    `
+}
+==/UserStyle== */
+
+@-moz-document url-prefix("/*[[custom_url]]*/") {
+    /***** Everywhere *****/
+
+    /* Hide Sidebar Business banner */
+    #sideview button:has(+ nav) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide Sidebar Users Roles */
+    #sideview nav[aria-label="Settings"] li[aria-label="Users"] li:has(a[href="#!/roles"]) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide Sidebar Authentication logs */
+    #sideview nav[aria-label="Settings"] li[aria-label="Authentication logs"]:has(a[href="#!/auth-logs"]) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide Sidebar Kubernetes Security constraints */
+    #sideview li[aria-label="Cluster"] li[aria-label="Security constraints"] {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/wizard/endpoints($|/create\?.*$)") {
+    /***** Settings -> Environments -> Add Environment *****/
+
+    /* Hide Business indicator */
+    #content-wrapper button:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide BE Feature */
+    #content-wrapper div.business {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/endpoints/[0-9]+/access($|\?.*$)") {
+    /***** Settings -> Environments -> Manage access *****/
+
+    /* Hide Business Feature indicator */
+    #content-wrapper div.form-group:has(be-feature-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/registries$") {
+    /***** Settings -> Registries *****/
+
+    /* Hide Business indicator */
+    #content-wrapper a.be-indicator {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/settings$") {
+    /***** Settings -> Settings *****/
+
+    /* Hide Business indicator */
+    #content-wrapper div.form-group:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide BE Feature */
+    #content-wrapper div.business {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/settings/auth$") {
+    /***** Settings -> Settings -> Authentication *****/
+
+    /* Hide BE Feature */
+    #content-wrapper div.business {
+        /*[[apply_property]]*/
+    }
+
+    /* LDAP */
+    /* Hide Business Feature indicator */
+    #content-wrapper ldap-settings div:has(> be-feature-indicator) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide BE Button LDAP URL */
+    #content-wrapper ldap-settings label[for="ldap_url"] button.limited-be {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide BE extra info */
+    #content-wrapper ldap-settings ldap-custom-group-search > rd-widget div.form-group:has(pr-icon[icon="'briefcase'"]) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide LDAP Sections */
+    #content-wrapper ldap-settings ldap-custom-admin-group,
+    #content-wrapper ldap-settings ldap-settings-test-login {
+        /*[[apply_property]]*/
+    }
+
+    /* OAUTH */
+    /* Hide Business indicator */
+    #content-wrapper oauth-settings div.form-group:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document
+regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/newstack$"),
+    regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
+    /***** Environment Docker -> Stacks -> Add Stack *****/
+    /***** Environment Docker -> Stacks -> Stack -> Editor *****/
+    /***** Environment Docker -> Stacks -> Stack -> Container *****/
+
+    /* Hide Business indicator Stack webhook */
+    #content-wrapper div:has(> div.form-section-title a.be-indicator),
+    #content-wrapper div > div.form-section-title:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide Business indicator Container webhook */
+    #content-wrapper tr:has(div.form-group a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/containers/new($|.*$)") {
+    /***** Environment Docker -> Containers -> Add Container *****/
+
+    /* Hide Webhooks switch new container */
+    #content-wrapper div:has(> div.form-group a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/containers/[0-9a-fA-F]{64}$") {
+    /***** Environment Docker -> Containers -> Container *****/
+
+    /* Hide Business indicator Container webhook */
+    #content-wrapper tr:has(div.form-group a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/host/feat-config$") {
+    /***** Environment Docker -> Host -> Setup *****/
+
+    /* Hide Business indicator */
+    #content-wrapper div.form-group:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document
+regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/new$"),
+    regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
+    /***** Environment Kubernetes -> Namespaces -> Add with form *****/
+
+    /* Hide Business indicator */
+    #content-wrapper div.form-group:has(label a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+
+    /* Hide Storage sector */
+    #content-wrapper div.form-section-title:has(+ div.form-group + div.form-section-title + storage-class-switch a.be-indicator),
+        #content-wrapper div.form-section-title + div.form-group:has(+ div.form-section-title + storage-class-switch a.be-indicator),
+            #content-wrapper div.form-section-title + div.form-group + div.form-section-title:has(+ storage-class-switch a.be-indicator) {
+                /*[[apply_property]]*/
+            }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/deploy($|\?.*$)") {
+    /***** Environment Kubernetes -> ... -> Create from manifest *****/
+
+    /* Hide Business indicator */
+    #content-wrapper div.form-group:has(label a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+}
+
+@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/cluster/configure") {
+    /***** Environment Kubernetes -> Cluster -> Setup *****/
+
+    /* Hide Business indicator */
+    #content-wrapper div.form-section-title:has(+ div.form-group por-switch-field[name="'disableSysctlSettingForRegularUsers'"] a.be-indicator),
+        #content-wrapper div.form-section-title + div.form-group:has(por-switch-field[name="'disableSysctlSettingForRegularUsers'"] a.be-indicator) {
+            /*[[apply_property]]*/
+        }
+
+            /* Hide Business indicator */
+            #content-wrapper div:has(> por-switch-field[name="'restrictStandardUserIngressW'"] a.be-indicator) {
+                /*[[apply_property]]*/
+            }
+
+                /* Hide Business indicator */
+                #content-wrapper div:has(+ div > por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator),
+                    #content-wrapper div + div:has(> por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator) {
+                        /*[[apply_property]]*/
+                    }
+}
