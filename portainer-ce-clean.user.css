@@ -141,7 +141,7 @@
 
 @-moz-document
 regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/newstack$"),
-    regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
+regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
     /***** Environment Docker -> Stacks -> Add Stack *****/
     /***** Environment Docker -> Stacks -> Stack -> Editor *****/
     /***** Environment Docker -> Stacks -> Stack -> Container *****/
@@ -186,7 +186,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/newstack$"),
 
 @-moz-document
 regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/new$"),
-    regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
+regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
     /***** Environment Kubernetes -> Namespaces -> Add with form *****/
 
     /* Hide Business indicator */
@@ -196,10 +196,10 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/new$"),
 
     /* Hide Storage sector */
     #content-wrapper div.form-section-title:has(+ div.form-group + div.form-section-title + storage-class-switch a.be-indicator),
-        #content-wrapper div.form-section-title + div.form-group:has(+ div.form-section-title + storage-class-switch a.be-indicator),
-            #content-wrapper div.form-section-title + div.form-group + div.form-section-title:has(+ storage-class-switch a.be-indicator) {
-                /*[[apply_property]]*/
-            }
+    #content-wrapper div.form-section-title + div.form-group:has(+ div.form-section-title + storage-class-switch a.be-indicator),
+    #content-wrapper div.form-section-title + div.form-group + div.form-section-title:has(+ storage-class-switch a.be-indicator) {
+        /*[[apply_property]]*/
+    }
 }
 
 @-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/deploy($|\?.*$)") {
@@ -216,18 +216,18 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/new$"),
 
     /* Hide Business indicator */
     #content-wrapper div.form-section-title:has(+ div.form-group por-switch-field[name="'disableSysctlSettingForRegularUsers'"] a.be-indicator),
-        #content-wrapper div.form-section-title + div.form-group:has(por-switch-field[name="'disableSysctlSettingForRegularUsers'"] a.be-indicator) {
-            /*[[apply_property]]*/
-        }
+    #content-wrapper div.form-section-title + div.form-group:has(por-switch-field[name="'disableSysctlSettingForRegularUsers'"] a.be-indicator) {
+        /*[[apply_property]]*/
+    }
 
-            /* Hide Business indicator */
-            #content-wrapper div:has(> por-switch-field[name="'restrictStandardUserIngressW'"] a.be-indicator) {
-                /*[[apply_property]]*/
-            }
+    /* Hide Business indicator */
+    #content-wrapper div:has(> por-switch-field[name="'restrictStandardUserIngressW'"] a.be-indicator) {
+        /*[[apply_property]]*/
+    }
 
-                /* Hide Business indicator */
-                #content-wrapper div:has(+ div > por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator),
-                    #content-wrapper div + div:has(> por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator) {
-                        /*[[apply_property]]*/
-                    }
+    /* Hide Business indicator */
+    #content-wrapper div:has(+ div > por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator),
+    #content-wrapper div + div:has(> por-switch-field[name="'resource-over-commit-switch'"] a.be-indicator) {
+        /*[[apply_property]]*/
+    }
 }
