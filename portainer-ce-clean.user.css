@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name           Portainer Community Edition Clean Layout
-@version        1.0.2
+@version        1.0.3
 @namespace      Portainer
 @description    Cleanup Portainer Community Edition by hiding all the unusable business features.
 @author         adripo (https://github.com/adripo)
@@ -10,7 +10,7 @@
 @license        NO-REDISTRIBUTION
 @preprocessor   uso
 
-@var text   portainer_url   "Portainer URL (https://example.com/)"         "https://example.com/"
+@var text   portainer_url   "Portainer URL (http://example.com/)"         "http://example.com/"
 @var select apply_property  "CSS Property to apply" {
     "Hide*":        "display: none !important;",
     "Red Border":   "border: solid red 2px !important;",
