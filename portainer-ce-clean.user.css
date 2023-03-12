@@ -56,7 +56,7 @@
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/wizard/endpoints($|/create\?.*$)") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/wizard/endpoints($|/create\?.*$)") {
     /***** Settings -> Environments -> Add Environment *****/
 
     /* Hide Business indicator */
@@ -70,7 +70,7 @@
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/endpoints/[0-9]+/access($|\?.*$)") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/endpoints/[0-9]+/access($|\?.*$)") {
     /***** Settings -> Environments -> Manage access *****/
 
     /* Hide Business Feature indicator */
@@ -79,7 +79,7 @@
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/registries$") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/registries$") {
     /***** Settings -> Registries *****/
 
     /* Hide Business indicator */
@@ -88,7 +88,7 @@
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/settings$") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/settings$") {
     /***** Settings -> Settings *****/
 
     /* Hide Business indicator */
@@ -102,7 +102,7 @@
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/settings/auth$") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/settings/auth$") {
     /***** Settings -> Settings -> Authentication *****/
 
     /* Hide BE Feature */
@@ -140,8 +140,8 @@
 }
 
 @-moz-document
-regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/newstack$"),
-regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
+regexp("^/*[[custom_url]]*//?#!/[0-9]+/docker/stacks/newstack$"),
+regexp("^/*[[custom_url]]*//?#!/[0-9]+/docker/stacks/.*$") {
     /***** Environment Docker -> Stacks -> Add Stack *****/
     /***** Environment Docker -> Stacks -> Stack -> Editor *****/
     /***** Environment Docker -> Stacks -> Stack -> Container *****/
@@ -157,7 +157,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
         /*[[apply_property]]*/
     }
 }
-@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/containers/new($|.*$)") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/[0-9]+/docker/containers/new($|.*$)") {
     /***** Environment Docker -> Containers -> Add Container *****/
 
     /* Hide Webhooks switch new container */
@@ -166,7 +166,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/containers/[0-9a-fA-F]{64}$") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/[0-9]+/docker/containers/[0-9a-fA-F]{64}$") {
     /***** Environment Docker -> Containers -> Container *****/
 
     /* Hide Business indicator Container webhook */
@@ -175,7 +175,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/host/feat-config$") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/[0-9]+/docker/host/feat-config$") {
     /***** Environment Docker -> Host -> Setup *****/
 
     /* Hide Business indicator */
@@ -185,8 +185,8 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/docker/stacks/.*$") {
 }
 
 @-moz-document
-regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/new$"),
-regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
+regexp("^/*[[custom_url]]*//?#!/[0-9]+/kubernetes/pools/new$"),
+regexp("^/*[[custom_url]]*//?#!/[0-9]+/kubernetes/pools/.*$") {
     /***** Environment Kubernetes -> Namespaces -> Add with form *****/
 
     /* Hide Business indicator */
@@ -202,7 +202,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/deploy($|\?.*$)") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/[0-9]+/kubernetes/deploy($|\?.*$)") {
     /***** Environment Kubernetes -> ... -> Create from manifest *****/
 
     /* Hide Business indicator */
@@ -211,7 +211,7 @@ regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/pools/.*$") {
     }
 }
 
-@-moz-document regexp("^/*[[custom_url]]*/#!/[0-9]+/kubernetes/cluster/configure") {
+@-moz-document regexp("^/*[[custom_url]]*//?#!/[0-9]+/kubernetes/cluster/configure") {
     /***** Environment Kubernetes -> Cluster -> Setup *****/
 
     /* Hide Business indicator */
