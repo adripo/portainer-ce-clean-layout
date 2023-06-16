@@ -59,13 +59,8 @@
 @-moz-document regexp("^/*[[portainer_url]]*//?#!/wizard/endpoints($|/create\?.*$)") {
     /***** Settings -> Environments -> Add Environment *****/
 
-    /* Hide Business indicator */
-    #content-wrapper button:has(a.be-indicator) {
-        /*[[apply_property]]*/
-    }
-
     /* Hide BE Feature */
-    #content-wrapper div.business {
+    #content-wrapper div.app-react-components-BoxSelector-BoxSelectorItem-module__business {
         /*[[apply_property]]*/
     }
 }
@@ -79,6 +74,7 @@
     }
 }
 
+
 @-moz-document regexp("^/*[[portainer_url]]*//?#!/registries$") {
     /***** Settings -> Registries *****/
 
@@ -87,7 +83,6 @@
         /*[[apply_property]]*/
     }
 }
-
 @-moz-document regexp("^/*[[portainer_url]]*//?#!/settings$") {
     /***** Settings -> Settings *****/
 
@@ -96,8 +91,13 @@
         /*[[apply_property]]*/
     }
 
+    /* Hide BE Card */
+    #content-wrapper div.be-indicator-container {
+        /*[[apply_property]]*/
+    }
+    
     /* Hide BE Feature */
-    #content-wrapper div.business {
+    #content-wrapper div.app-react-components-BoxSelector-BoxSelectorItem-module__business {
         /*[[apply_property]]*/
     }
 }
@@ -106,23 +106,28 @@
     /***** Settings -> Settings -> Authentication *****/
 
     /* Hide BE Feature */
-    #content-wrapper div.business {
+    #content-wrapper div.app-react-components-BoxSelector-BoxSelectorItem-module__business {
         /*[[apply_property]]*/
     }
 
     /* LDAP */
-    /* Hide Business Feature indicator */
-    #content-wrapper ldap-settings div:has(> be-feature-indicator) {
-        /*[[apply_property]]*/
-    }
-
     /* Hide BE Button LDAP URL */
     #content-wrapper ldap-settings label[for="ldap_url"] button.limited-be {
         /*[[apply_property]]*/
     }
 
+    /* Hide BE Display Users */
+    #content-wrapper ldap-settings ldap-custom-user-search > div.form-group div.col-sm-12:has(be-feature-indicator) {
+        /*[[apply_property]]*/
+    }
+    
     /* Hide BE extra info */
     #content-wrapper ldap-settings ldap-custom-group-search > rd-widget div.form-group:has(pr-icon[icon="'briefcase'"]) {
+        /*[[apply_property]]*/
+    }
+    
+    /* Hide BE display user/group matching */
+    #content-wrapper ldap-settings ldap-custom-group-search > div.form-group div.col-sm-12:has(be-feature-indicator) {
         /*[[apply_property]]*/
     }
 
@@ -179,7 +184,23 @@ regexp("^/*[[portainer_url]]*//?#!/[0-9]+/docker/stacks/.*$") {
     /***** Environment Docker -> Host -> Setup *****/
 
     /* Hide Business indicator */
-    #content-wrapper div.form-group:has(a.be-indicator) {
+    #content-wrapper div.form-group div.col-sm-12:has(a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+    
+    /* Hide title of empty sections */
+    #content-wrapper div.form-section-title:has(+ div.form-group div.col-sm-12:only-child a.be-indicator) {
+        /*[[apply_property]]*/
+    }
+    
+}
+
+
+@-moz-document regexp("^/*[[portainer_url]]*//?#!/[0-9]+/docker/host/registries$") {
+    /***** Environment Docker -> Host -> Registries *****/
+
+    /* Hide Business indicator */
+    #content-wrapper be-feature-indicator {
         /*[[apply_property]]*/
     }
 }
